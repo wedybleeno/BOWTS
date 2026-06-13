@@ -1,0 +1,32 @@
+# Основные зависимости
+requests>=2.25.1
+urllib3>=1.26.0
+
+# Telegram боты
+python-telegram-bot>=20.0
+telethon>=1.28.0
+
+# Видео и аудио обработка
+yt-dlp>=2023.0.0
+ffmpeg-python>=0.2.0
+
+# Веб-фреймворки
+flask>=2.3.0
+fastapi>=0.100.0
+uvicorn>=0.23.0
+
+# GUI
+tkinter
+PyQt5>=5.15.0
+
+# Криптография
+cryptography>=41.0.0
+pycryptodome>=3.18.0
+
+# Дополнительные утилиты
+python-dotenv>=1.0.0
+aiohttp>=3.8.0
+asyncio
+pillow>=10.0.0
+numpy>=1.24.0
+

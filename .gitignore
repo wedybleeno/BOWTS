@@ -1,0 +1,56 @@
+# Конфиденциальные данные
+BOT_TOKEN
+GOOGLE_API_KEY
+user_session.session
+*.session
+*.db
+index.db
+
+# Временные файлы и папки
+downloads/
+videos/
+out/
+venv/
+audio_bot_app/audio_files/
+audio_files/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.log
+sc_likes_bot.log
+
+# Большие файлы данных
+result.json
+coins.json
+sent_urls.txt
+likes.txt
+
+# Node.js
+node_modules/
+package-lock.json
+
+# Системные файлы
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
+
+# IDE файлы
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Локальные настройки
+.env
+.env.local
+.env.production
+
+# Вложенные Git репозитории
+Clock/ClockTemp/
+Tutorial-Codebase-Knowledge/
+lofi-engine/
+tesseract/
+unlocker/
