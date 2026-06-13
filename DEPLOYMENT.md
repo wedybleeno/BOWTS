@@ -1,21 +1,22 @@
-# 🚀 Инструкции по развертыванию на GitHub
+# 🚀 Deployment Instructions for GitHub
 
-## Шаг 1: Подготовка к загрузке
+## Step 1: Prepare for Upload
 
-### 1.1 Инициализация Git репозитория
+### 1.1 Initialize Git Repository
 ```bash
-# Инициализируем Git репозиторий
+# Initialize a Git repository
 git init
 
-# Добавляем все файлы (кроме исключенных в .gitignore)
+# Add all files (excluding files matched in .gitignore)
 git add .
 
-# Создаем первый коммит
+# Create the initial commit
 git commit -m "Initial commit: BOTS collection"
 ```
 
-### 1.2 Проверка исключенных файлов
-Убедитесь, что конфиденциальные файлы не попадут в репозиторий:
+### 1.2 Verify Ignored Files
+Make sure that your private, sensitive credentials will not be committed to GitHub. The following files should not be uploaded:
+- `.env`
 - `BOT_TOKEN`
 - `GOOGLE_API_KEY`
 - `user_session.session`
@@ -23,32 +24,38 @@ git commit -m "Initial commit: BOTS collection"
 - `result.json`
 - `coins.json`
 
-## Шаг 2: Создание приватного репозитория на GitHub
+Verify these patterns in `.gitignore`.
 
-### 2.1 Создание репозитория
-1. Перейдите на [GitHub.com](https://github.com)
-2. Нажмите "New repository"
-3. Введите название: `BOTS`
-4. **ВАЖНО**: Выберите "Private" (приватный)
-5. НЕ ставьте галочки на README, .gitignore, license
-6. Нажмите "Create repository"
+---
 
-### 2.2 Связывание локального репозитория с GitHub
+## Step 2: Create a Private Repository on GitHub
+
+### 2.1 Create Repository
+1. Navigate to [GitHub.com](https://github.com)
+2. Click "New repository"
+3. Enter name: `BOTS`
+4. **IMPORTANT**: Choose "Private" (to keep your repo closed to third parties)
+5. Do NOT check the boxes for README, .gitignore, or license.
+6. Click "Create repository"
+
+### 2.2 Link Local Repository to GitHub
 ```bash
-# Добавляем удаленный репозиторий (замените YOUR_USERNAME на ваше имя пользователя)
+# Add remote origin URL (replace YOUR_USERNAME with your GitHub login)
 git remote add origin https://github.com/YOUR_USERNAME/BOTS.git
 
-# Переименовываем основную ветку в main (современный стандарт)
+# Rename default branch to main (modern standard)
 git branch -M main
 
-# Отправляем код на GitHub
+# Push the code to GitHub
 git push -u origin main
 ```
 
-## Шаг 3: Настройка безопасности
+---
 
-### 3.1 Создание файла с переменными окружения
-Создайте файл `.env` (он уже в .gitignore):
+## Step 3: Setup Security
+
+### 3.1 Create Environment Variable File
+Create a `.env` file (which is ignored by Git):
 ```env
 # Telegram Bot Token
 TELEGRAM_TOKEN=your_telegram_bot_token_here
@@ -60,69 +67,79 @@ GOOGLE_API_KEY=your_google_api_key_here
 SOUNDCLOUD_PROFILE_URL=https://soundcloud.com/your-username/likes
 ```
 
-### 3.2 Настройка GitHub Secrets (опционально)
-Если планируете использовать GitHub Actions:
+### 3.2 Configure GitHub Secrets (Optional)
+If you plan to use GitHub Actions:
 
-1. Перейдите в Settings → Secrets and variables → Actions
-2. Добавьте секреты:
+1. Navigate to Settings → Secrets and variables → Actions.
+2. Add secrets:
    - `TELEGRAM_TOKEN`
    - `GOOGLE_API_KEY`
 
-## Шаг 4: Проверка загрузки
+---
 
-### 4.1 Проверка файлов на GitHub
-1. Перейдите в ваш репозиторий на GitHub
-2. Убедитесь, что все файлы загружены
-3. Проверьте, что конфиденциальные файлы НЕ загружены
+## Step 4: Verify Upload
 
-### 4.2 Проверка приватности
-1. Откройте репозиторий в режиме инкогнито
-2. Убедитесь, что доступ закрыт
+### 4.1 Verify Files on GitHub
+1. Go to your repository on GitHub.
+2. Check that all source code files have been uploaded.
+3. Verify that your sensitive files (e.g. `.env`, database files) are NOT uploaded.
 
-## Шаг 5: Дополнительные настройки
+### 4.2 Verify Privacy Settings
+1. Open your repository URL in an incognito/private browser tab.
+2. Ensure you get a 404 (Not Found) error, verifying that the repository is indeed private.
 
-### 5.1 Настройка веток
+---
+
+## Step 5: Advanced Branch Management (Optional)
+
+### 5.1 Develop Branch Setup
 ```bash
-# Создание ветки для разработки
+# Create a development branch
 git checkout -b develop
 
-# Отправка ветки на GitHub
+# Push the develop branch to GitHub
 git push -u origin develop
 ```
 
-### 5.2 Настройка защиты веток (опционально)
-1. Перейдите в Settings → Branches
-2. Добавьте правило для ветки `main`
-3. Включите "Require pull request reviews"
+### 5.2 Branch Protection Rules (Optional)
+1. Go to Settings → Branches.
+2. Add a protection rule for the `main` branch.
+3. Enable "Require pull request reviews before merging".
 
-## Шаг 6: Клонирование на других устройствах
+---
 
-### 6.1 Клонирование репозитория
+## Step 6: Clone on Other Devices
+
+### 6.1 Clone Repository
 ```bash
-# Клонируем приватный репозиторий
+# Clone the private repository
 git clone https://github.com/YOUR_USERNAME/BOTS.git
 
-# Переходим в папку проекта
+# Change directory to project folder
 cd BOTS
 
-# Устанавливаем зависимости
+# Install requirements
 pip install -r requirements.txt
 
-# Создаем файл .env с вашими токенами
-cp .env.example .env
-# Отредактируйте .env файл с вашими данными
+# Create .env file from example
+cp env.example .env
+# Edit the .env file with your tokens and keys
 ```
 
-## 🔒 Важные моменты безопасности
+---
 
-1. **Никогда не коммитьте токены и ключи**
-2. **Всегда используйте .env файлы для конфиденциальных данных**
-3. **Регулярно обновляйте зависимости**
-4. **Используйте приватные репозитории для личных проектов**
+## 🔒 Crucial Security Reminders
 
-## 📞 Поддержка
+1. **Never commit raw tokens or API keys to the repository.**
+2. **Always use `.env` files for managing credentials locally.**
+3. **Regularly update dependencies via requirements.**
+4. **Use private repositories for personal projects with sensitive APIs.**
 
-Если возникли проблемы:
-1. Проверьте, что все файлы в .gitignore
-2. Убедитесь, что репозиторий приватный
-3. Проверьте права доступа к репозиторию
+---
+
+## 📞 Support & Troubleshooting
+
+If you encounter issues:
+1. Double-check your `.gitignore` configuration.
+2. Verify repository visibility status (Private).
+3. Check your authentication permissions on GitHub.

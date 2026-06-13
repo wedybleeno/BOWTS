@@ -1,85 +1,87 @@
-# BOTS - Коллекция ботов и скриптов
+# BOTS - Collection of Bots and Scripts
 
-Коллекция различных ботов и скриптов для автоматизации задач.
+A collection of various bots and scripts for task automation.
 
-## 📁 Структура проекта
+## 📁 Project Structure
 
-### 🎵 Музыкальные боты
-- `soundcloud.py` - Скрипт для сбора ссылок на треки из лайков SoundCloud
-- `get_client_id.py` - Вспомогательный скрипт для получения client_id SoundCloud
-- `muz.py`, `muz2.py`, `muz3.py` - Музыкальные боты
-- `muzbot.py`, `muzbot2.py` - Telegram музыкальные боты
-- `cutmusic.py` - Скрипт для обрезки музыки
+### 🎵 Music Bots
+- `soundcloud.py` - Script to scrape track links from SoundCloud likes.
+- `get_client_id.py` - Helper script to fetch a SoundCloud `client_id`.
+- `muz.py`, `muz2.py`, `muz3.py` - Music downloader bots.
+- `muzbot.py`, `muzbot2.py` - Telegram music downloader bots.
+- `cutmusic.py` - Script to trim/cut audio files.
 
-### 🤖 Telegram боты
-- `tele.py` - Telegram бот
-- `telethon_listener.py` - Слушатель Telegram с использованием Telethon
-- `cryptobot.py` - Криптовалютный бот
+### 🤖 Telegram Bots
+- `tele.py` - Telegram channel search and indexing bot.
+- `telethon_listener.py` - Telegram message listener using Telethon.
+- `cryptobot.py` - Cryptocurrency bot integrated with Gemini AI.
 
-### 🎬 Видео обработка
-- `veo.py` - Скрипт для работы с видео
-- `make_video.py` - Создание видео
+### 🎬 Video Processing
+- `veo.py` - Script to generate videos using Google Veo.
+- `make_video.py` - Helper script to generate video from prompt.
 
-### 🌐 Веб-приложения
-- `main6.py` - Основное веб-приложение
-- `client_gui.py` - GUI клиент
-- `server1.py`, `server2.py`, `server3.py` - Серверные приложения
+### 🌐 Web & Networking Applications
+- `main6.py` - Main web application.
+- `client_gui.py` - GUI client.
+- `server1.py`, `server2.py`, `server3.py` - Socket server scripts.
 
-### 🔧 Утилиты
-- `lan.py` - Сетевые утилиты
-- `crypt.py` - Криптографические функции
+### 🔧 Utilities
+- `lan.py` - Local network scanning utilities.
+- `crypt.py` - Cryptographic helper functions.
 
-## 🚀 Установка и запуск
+## 🚀 Setup & Launch
 
-### Требования
+### Requirements
+Ensure Python is installed, then run:
 ```bash
 pip install -r requirements.txt
 ```
 
-### Основные зависимости
-- `requests` - HTTP запросы
-- `urllib3` - HTTP клиент
-- `python-telegram-bot` - Telegram Bot API
-- `yt-dlp` - Скачивание видео
-- `telethon` - Telegram клиент
+### Key Dependencies
+- `requests` - HTTP requests library.
+- `urllib3` - HTTP client.
+- `python-telegram-bot` - Telegram Bot API wrapper.
+- `yt-dlp` - Advanced video and audio downloader.
+- `telethon` - Telegram client library.
+- `python-dotenv` - Environment variable manager.
 
-## 📋 Использование
+## 📋 Usage
 
-### SoundCloud скрипт
+### SoundCloud Scraper
 ```bash
 python soundcloud.py
 ```
 
-### Получение client_id для SoundCloud
+### Extracting SoundCloud client_id
 ```bash
 python get_client_id.py
 ```
 
-### Telegram бот
+### Running Telegram Bot
 ```bash
 python tele.py
 ```
 
-## ⚙️ Настройка
+## ⚙️ Configuration
 
-1. Создайте файл `.env` с вашими токенами:
-```
+1. Create a `.env` file containing your API credentials:
+```ini
 TELEGRAM_TOKEN=your_telegram_token
 GOOGLE_API_KEY=your_google_api_key
 ```
 
-2. Для SoundCloud скрипта замените `PROFILE_URL` в `soundcloud.py` на ваш профиль.
+2. For the SoundCloud scraper, modify the `PROFILE_URL` in `soundcloud.py` to point to your profile.
 
-## 🔒 Безопасность
+## 🔒 Security
 
-- Все токены и ключи исключены из репозитория через `.gitignore`
-- Используйте переменные окружения для конфиденциальных данных
-- Репозиторий приватный для защиты ваших данных
+- All API tokens and credentials are excluded from Git history using `.gitignore`.
+- Use the `.env` file to manage sensitive parameters locally.
+- Keep the repository private if you host any sensitive custom keys.
 
-## 📝 Лицензия
+## 📝 License
 
-Приватный проект. Все права защищены.
+Private project. All rights reserved.
 
-## 🤝 Поддержка
+## 🤝 Contributing & Support
 
-Для вопросов и предложений создавайте Issues в репозитории.
+For bugs, questions, or feature requests, feel free to open an Issue in the repository.
